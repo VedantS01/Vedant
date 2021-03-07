@@ -1,0 +1,5 @@
+nasm -f elf CS19B074.asm -o CS19B074.o
+nasm -f elf encode.mac -o encode.o
+ld -m elf_i386 -s CS19B074.o io.o encode.o -o CS19B074
+./CS19B074
+

@@ -1,0 +1,4 @@
+nasm -f elf CS19B074.asm
+ld -m elf_i386 -s CS19B074.o io.o -o CS19B074
+./CS19B074
+

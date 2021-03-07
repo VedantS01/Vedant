@@ -1,0 +1,17 @@
+;;--------------------------------------------------------------
+; File : encode.mac -- encodes contents in AL according to the encoding criterion
+; Author : Vedant Saboo (CS19B074)
+; Version : 1.0.0
+;;--------------------------------------------------------------
+
+;;--------------------------------------------------------------
+%macro  Encode    0
+        cmp EAX, 0x39
+        jg done
+        add EAX, 0x05
+        cmp EAX, 0x39
+        jle done
+        sub EAX, 0x0a
+done:
+%endmacro
+;;--------------------------------------------------------------
