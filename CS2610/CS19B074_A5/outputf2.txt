@@ -1,0 +1,20 @@
+
+ TIME ELAPSED = 0.558446 seconds
+
+ TIME ELAPSED = 0.623330 seconds
+
+ TIME ELAPSED = 0.540712 seconds
+
+ TIME ELAPSED = 0.623280 seconds
+
+ TIME ELAPSED = 0.623191 seconds
+
+ TIME ELAPSED = 0.646422 seconds
+
+ TIME ELAPSED = 0.543503 seconds
+
+ TIME ELAPSED = 0.570892 seconds
+
+ TIME ELAPSED = 0.635372 seconds
+
+ TIME ELAPSED = 0.555549 seconds

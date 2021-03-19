@@ -19,7 +19,7 @@ search element. You can assume that the input sequence is already sorted. After 
 search result, query the user whether he wants to terminate or not; if the response is y or Y,
 terminate. Otherwise, request for another search element.
 
-## Sample program execution
+# Sample program execution
 
 ~$ ./commands.txt
 
@@ -49,6 +49,8 @@ Please enter 10 each on a next line.
 
 Enter the element to be searched : 6
 
+Result of the binary search is : 1
+
 The element was found.
 
 Do you want to terminate the program (Y/n)
@@ -56,6 +58,8 @@ Do you want to terminate the program (Y/n)
 n
 
 Enter the element to be searched : 7
+
+Result of the binary search is : 0
 
 The element was not found.
 
@@ -65,7 +69,7 @@ Y
 
 ~$
 
-## Remarks
+# Remarks
 
 1. A correct input will give a reliable output.
 

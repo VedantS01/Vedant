@@ -1,0 +1,59 @@
+######################################################################
+(tests)
+######################################################################
+
+# SCENARIO 1
+
+
+Performance counter stats for './test1' (10 runs):
+
+    7,19,25,62,858      cpu-cycles                #    3.712 GHz                      ( +-  1.84% )  (36.22%)
+    8,73,75,07,163      instructions              #    1.21  insn per cycle           ( +-  0.09% )  (45.36%)
+    1,12,36,59,203      branch-instructions       #  579.970 M/sec                    ( +-  0.25% )  (45.44%)
+    3,11,67,16,967      cache-references          # 1608.674 M/sec                    ( +-  0.36% )  (45.53%)
+          1,88,525      cache-misses              #    0.006 % of all cache refs      ( +- 19.66% )  (45.65%)
+    2,20,79,50,240      L1-dcache-loads           # 1139.620 M/sec                    ( +-  0.05% )  (45.64%)
+    1,08,29,35,760      L1-dcache-load-misses     #   49.05% of all L1-dcache hits    ( +-  0.09% )  (36.45%)
+    2,17,54,39,194      dTLB-loads                # 1122.839 M/sec                    ( +-  0.14% )  (36.39%)
+             1,016      dTLB-load-misses          #    0.00% of all dTLB cache hits   ( +-  9.90% )  (36.31%)
+    1,24,53,66,485      LLC-loads                 #  642.788 M/sec                    ( +-  0.47% )  (36.22%)
+             2,242      LLC-load-misses           #    0.00% of all LL-cache hits     ( +- 21.08% )  (36.15%)
+    1,93,74,05,423 ns   duration_time             #  999.980 M/sec                    ( +-  2.66% )
+          1,937.44 msec cpu-clock                 #    1.000 CPUs utilized            ( +-  2.66% )
+          1,937.45 msec task-clock                #    1.000 CPUs utilized            ( +-  2.66% )
+
+            1.9374 +- 0.0515 seconds time elapsed  ( +-  2.66% )
+
+# SCENARIO 2
+
+ Performance counter stats for './test2' (10 runs):
+
+    2,32,49,22,789      cpu-cycles                #    3.819 GHz                      ( +-  0.53% )  (35.74%)
+    7,68,09,47,104      instructions              #    3.30  insn per cycle           ( +-  0.07% )  (45.03%)
+    1,11,64,21,346      branch-instructions       # 1834.095 M/sec                    ( +-  0.08% )  (45.36%)
+       7,40,24,194      cache-references          #  121.609 M/sec                    ( +-  0.33% )  (45.75%)
+          1,70,047      cache-misses              #    0.230 % of all cache refs      ( +- 11.35% )  (46.15%)
+    2,17,53,63,311      L1-dcache-loads           # 3573.760 M/sec                    ( +-  0.06% )  (46.22%)
+       3,38,43,564      L1-dcache-load-misses     #    1.56% of all L1-dcache hits    ( +-  0.20% )  (36.70%)
+    2,19,79,86,754      dTLB-loads                # 3610.927 M/sec                    ( +-  0.09% )  (36.44%)
+               958      dTLB-load-misses          #    0.00% of all dTLB cache hits   ( +-  9.86% )  (36.18%)
+          9,26,956      LLC-loads                 #    1.523 M/sec                    ( +- 12.26% )  (35.85%)
+             1,754      LLC-load-misses           #    0.19% of all LL-cache hits     ( +- 40.61% )  (35.61%)
+      60,87,63,635 ns   duration_time             # 1000.097 M/sec                    ( +-  2.17% )
+            608.70 msec cpu-clock                 #    1.000 CPUs utilized            ( +-  2.17% )
+            608.70 msec task-clock                #    1.000 CPUs utilized            ( +-  2.17% )
+
+            0.6088 +- 0.0132 seconds time elapsed  ( +-  2.17% )
+
+
+#########################################################################
+
+ 
+
+
+
+
+
+
+
+

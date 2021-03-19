@@ -18,6 +18,7 @@
     terminate_msg       db              "Do you want to terminate the program (Y/n)",10,0
     Y_char              db              "Y"
     y_char              db              "y"
+    result_msg          db              "Result of the binary search is : ",0
 .UDATA
     BUF_LEN         equ         30
     WORD_LEN        equ         4  
@@ -37,7 +38,9 @@ begin_program:
     GetLInt         EDX                 ; get the number to be found in edx register
 
     call            binary_search       ; call binary search procedure
-
+    PutStr          result_msg          ; result message
+    PutLInt         EAX                 ; Print EAX
+    nwln
     cmp             EAX,1               ; compare result of bianry search with 1
     jne             else                ; if eax is not one, jump to else part
     PutStr          found_msg           ; if eax is 1, print found message
