@@ -9,6 +9,9 @@ typedef bool bit;
 typedef long long int type_tag;
 #define BYTE_ADDRESSING 8
 #define MEMORY_SIZE 0x80000000 //size in bytes
+int cache_misses = 0;
+int cache_hits = 0;
+int total_memory_refs = 0;
 class Block {
     public:
     bit* addr;
@@ -198,21 +201,29 @@ class Set {
     CacheBlock* find(type_tag tag) {
         CacheBlock* cb = head;
         for(int i = 0; i < numWays; i++) {
-            if(cb->tag == tag) {
-                return cb;
-            } else if (!cb->valid) {
+            if (!cb->valid) {
                 //get the block from memory, in cb
                 //TODO:
+                //a miss
+                cache_misses++;
                 cb->pointer = new Block;
                 cb->valid = true;
+                cb->tag = tag;
+                return cb;
+            } else if(cb->tag == tag) {
+                //a hit!
+                cache_hits++;
                 return cb;
             }
             cb = cb->next;
         }
         evict();
         //get the block from memory, in tail
+        //a miss
+        cache_misses++;
         tail->pointer = new Block;
         tail->valid = true;
+        tail->tag = tag;
         return tail;
     }
     void evict() { //rp = random, lru
@@ -222,6 +233,8 @@ class Set {
                 //write the block at cb to the memory
             }
             cb->valid = false;
+            cb->tag = 0;
+            cb->dirty = false;
         }
     }
     void write(type_tag t, int b) {
@@ -246,13 +259,14 @@ class Cache {
     void initialise() {
         if(associativity != 0) {
             numWays = associativity;
-            numSets = cacheSize / blockSize / associativity ;
         } else 
             numWays = cacheSize / blockSize ;
+        numSets = cacheSize / blockSize / numWays ;
         sets = new Set [numSets]; //later, charactorize by associativity.
         for(int i = 0; i < numSets; i++) sets[i] = Set(i, numWays, blockSize);
     }
     void access(string hex) {
+        total_memory_refs++;
         long long int dec = HexToDec(hex);
         int wr = dec / MEMORY_SIZE;
         type_tag tag = (type_tag) dec % MEMORY_SIZE;
@@ -311,6 +325,10 @@ int main() {
         */
         cache.access(trace);
     }
+    cout << "Cache Misses = " << cache_misses << endl;
+    cout << "Cache Hits = " << cache_hits << endl;
+    cout << "Total Memory References = " << total_memory_refs << endl;
+
 }
 
 /**

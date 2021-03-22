@@ -1,0 +1,22 @@
+Enter cacheSize : Enter blockSize : Enter associativity : Enter replacementPolicy : Enter filename : Set: contructor call
+Set: contructor call
+Set: contructor call
+Set: contructor call
+12345678 305419896
+	0 1193046 1 56 miss
+1234567a 305419888
+	0 1193046 1 48 hit
+1234566c 305419874
+	0 1193046 1 34 hit
+12345891 305420433
+	0 1193048 2 17 miss
+12345679 305419897
+	0 1193046 1 57 hit
+13245661 321148513
+	0 1254486 1 33 miss
+14235678 337860216
+	0 1319766 1 56 miss
+14345678 338974328
+	0 1324118 1 56 miss
+ff345678 1429493368
+	0 5583958 1 56 miss

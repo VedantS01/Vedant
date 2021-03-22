@@ -11,20 +11,21 @@ using namespace std;
 
 #include "Cache.h"
 
-CacheBlock::CacheBlock(int_16 n) { //enter n in units of Bytes
-    tagSize = n * 8;
-    tag = new bit[tagSize];
+CacheBlock::CacheBlock(type_tag t) { //enter n in units of Bytes
+    tag = t;
+    valid = true;
+    dirty = false;
+}
+CacheBlock::CacheBlock() {
     valid = false;
     dirty = false;
 }
-CacheBlock::CacheBlock(int_16 n, Block* block) { //enter n in units of Bytes
-    tagSize = n * 8;
-    tag = new bit[tagSize];
+CacheBlock::CacheBlock(type_tag t, Block* block) { //enter n in units of Bytes
+    tag = t;
     dataBlock = block;
     valid = true;
     dirty = false;
 }
 CacheBlock::~CacheBlock() {
-    delete[] tag;
     valid = false;
 }

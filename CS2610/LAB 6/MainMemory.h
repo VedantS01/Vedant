@@ -14,7 +14,7 @@ using namespace std;
 typedef short unsigned int int_16;
 typedef bool bit;
 #define BYTE_ADDRESSING 8
-#define MEMORY_SIZE 0x40000000 //size in bytes
+#define MEMORY_SIZE 0x80000000 //size in bytes
 
 int_16 blockSize;
 
