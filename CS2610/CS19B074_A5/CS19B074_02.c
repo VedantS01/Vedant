@@ -22,6 +22,10 @@ int main() {
     for(i = 0; i < MAX; i++) {
         for(j = 0; j < MAX; j++) {
             A[i][j] = (word) (rand()%11) ;
+        }
+    }
+    for(i = 0; i < MAX; i++) {
+        for(j = 0; j < MAX; j++) {
             B[i][j] = (word) (rand()%11) ;
         }
     }
