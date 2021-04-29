@@ -97,14 +97,19 @@ class Cache {
                 sets[i].push_back(CacheBlock(blockSize));
         }
     }
-    bool access(string hex) {
+    bool access(long long int dec) {
         //TODO: improve
         total_memory_refs++;
-        long long int dec = HexToDec(hex);
-        int wr = dec / MEMORY_SIZE;
-        type_tag tag = (type_tag) dec % MEMORY_SIZE;
+        //long long int dec = HexToDec(hex);
+        int wr = dec >> 31;
+        type_tag tag = (type_tag) dec & 0x7fffffff;
+        int w = 0, b = blockSize;
+        while(b > 1) {
+            b = b >> 1;
+            w++;
+        }
         int blockOffset = tag % blockSize;
-        tag = (type_tag) tag / blockSize;
+        tag = (type_tag) tag >> w;
         int setIndex = tag % numSets;
         tag = (type_tag) tag / numSets;
         if(wr == 1) {
@@ -184,7 +189,7 @@ class Cache {
                 sets[s].pop_back();
                 cb.tag = t;
                 cb.valid = true;
-                cb.dirty = false;
+                cb.dirty = true;
                 cb.pointer = new Block;
                 sets[s].push_front(cb);
                 return false;
@@ -206,7 +211,7 @@ class Cache {
         sets[s].pop_back();
         cb.tag = t;
         cb.valid = true;
-        cb.dirty = false;
+        cb.dirty = true;
         cb.pointer = new Block;
         sets[s].push_front(cb);
         return false;
@@ -278,7 +283,7 @@ class CacheLRU : public Cache {
                 sets[s].pop_back();
                 cb.tag = t;
                 cb.valid = true;
-                cb.dirty = false;
+                cb.dirty = true;
                 cb.pointer = new Block;
                 sets[s].push_front(cb);
                 return false;
@@ -303,7 +308,7 @@ class CacheLRU : public Cache {
         sets[s].pop_back();
         cb.tag = t;
         cb.valid = true;
-        cb.dirty = false;
+        cb.dirty = true;
         cb.pointer = new Block;
         sets[s].push_front(cb);
         return false;
@@ -447,7 +452,7 @@ class CacheLRUP : public Cache {
         
         cb->tag = t;
         cb->valid = true;
-        cb->dirty = false;
+        cb->dirty = true;
         cb->pointer = new Block;
         afterOperation(s, i + numWays - 1);
 

@@ -1,0 +1,10 @@
+4
+8
+ADDE 1 2 1
+ADDE 1 3 1
+ADDE 2 3 1
+ADDE 0 2 1
+ADDE 0 3 1
+ADDE 0 1 1
+Kruskal
+DisplayTree

@@ -1,0 +1,29 @@
+c
+r
+2
+25
+ADDE 0 1 10
+ADDV
+ADDE 1 2 15
+ADDV
+ADDE 2 3 11
+ADDE 3 0 9
+ADDE 0 2 6
+DELE 0 3
+Prims 0
+DisplayTree
+ADDE 3 0 12
+TreeUptodate
+Prims 1
+TreeUptodate
+DisplayTree
+DELE 1 2
+ADDE 1 2 7
+Prims 2
+DisplayTree
+DELE 0 2
+ADDV
+ADDV
+ADDE 4 5 10
+Kruskal
+DisplayTree

@@ -181,14 +181,16 @@ int main() {
     type_tag tag;
     hashTable = vector<char> (HASH_TABLE_SIZE/blockSize, 'x');
     while(fin.eof() == 0) {
-        fin >> trace;
-        bool hit = cache->access(trace);
+        fin >> hex >> dec;
+        bool hit = cache->access(dec);
 
         // for hash records
         
-        dec = HexToDec(trace);
+        //dec = HexToDec(trace);
+        fout << "WR = " << (dec >> 0x1f) << "\t";
+        dec = dec % MEMORY_SIZE;
         char ch = hashTable[hasher(dec) / blockSize];
-        fout << "DEBUG: " << hasher(dec) / blockSize << " Set: " << (hasher(dec) / blockSize) % cache->numSets << endl;
+        fout << "DEBUG: "  <<hasher(dec) / blockSize << " Set: " << (hasher(dec) / blockSize) % cache->numSets << endl;
         if(ch == 'x') {
             compulsory_misses++;
             hashTable[hasher(dec) / blockSize] = 'y';
